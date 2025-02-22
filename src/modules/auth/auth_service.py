@@ -31,6 +31,6 @@ class AuthService:
 
         return LoginResponse(
             access_token=access_token,
-            expires_in=int(token_expiration.timestamp()),
+            expires_in=token_expiration,
             name=customer.name,
         )
