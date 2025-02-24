@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_jwt_extended import jwt_required
 
-from common.utils import get_jwt_id
+from common.utils import get_params
 from modules.places.places_controller import PlacesController
 
 
@@ -14,19 +14,18 @@ def create():
     return PlacesController.create(payload)
 
 
-@bp.patch("/")
+@bp.patch("/<int:id>")
 @jwt_required()
-def edit():
+def edit(id: int):
     payload = request.get_json()
-    id = get_jwt_id()
     return PlacesController.edit(id, payload)
 
 
 @bp.get("/")
 @jwt_required()
 def get_all():
-    payload = request.get_json()
-    return PlacesController.get(payload)
+    params = get_params()
+    return PlacesController.get(params)
 
 
 @bp.get("/<int:id>")

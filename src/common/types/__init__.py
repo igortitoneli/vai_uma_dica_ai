@@ -62,7 +62,9 @@ class ToList(Generic[T]):
 
             # Validação normal para tipos não-Enum
             if isinstance(value, list):
-                if all(isinstance(item, expected_type) for item in value):
+                if all(
+                    isinstance(expected_type(item), expected_type) for item in value
+                ):
                     return value
                 raise TypeError(
                     f"Todos os elementos da lista devem ser do tipo {expected_type.__name__}"
