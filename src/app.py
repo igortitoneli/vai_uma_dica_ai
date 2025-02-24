@@ -44,9 +44,13 @@ def init_db(app: Flask):
 def set_blueprints(app: Flask):
     from modules.auth import auth_router
     from modules.customers import customers_router
+    from modules.places import places_router
+    from modules.reviews import reviews_router
 
     app.register_blueprint(auth_router.bp)
     app.register_blueprint(customers_router.bp)
+    app.register_blueprint(places_router.bp)
+    app.register_blueprint(reviews_router.bp)
 
 
 def register_handlers(app: Flask):

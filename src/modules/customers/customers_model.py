@@ -4,7 +4,7 @@ from common.interfaces.model import Model
 from sqlalchemy.orm import Mapped, mapped_column
 
 
-class Customer(Model, DateMixin):
+class Customers(Model, DateMixin):
     __tablename__ = "customers"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, nullable=False)

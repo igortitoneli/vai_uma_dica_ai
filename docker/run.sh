@@ -4,7 +4,6 @@ export FLASK_APP=src/app.py
 SCRIPT=$(readlink -f "$0")
 DIR=$(dirname "$SCRIPT")
 cd $DIR
-. ./profile
 
 
 echo

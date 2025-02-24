@@ -5,7 +5,7 @@ from common.config.token_config import TokenConfig
 from modules.auth.auth_repository import AuthRepository
 from modules.auth.dto.payload.login import LoginPayload
 from modules.auth.dto.response.login import LoginResponse
-from modules.customers.customers_repository import CustomerRepository
+from modules.customers.customers_repository import CustomersRepository
 from modules.customers.dto.filter.customers_filter import CustomersFilter
 
 
@@ -13,7 +13,7 @@ class AuthService:
 
     @classmethod
     def login(cls, auth: LoginPayload) -> LoginResponse:
-        customer = CustomerRepository.get_first(CustomersFilter(email=auth.email))
+        customer = CustomersRepository.get_first(CustomersFilter(email=auth.email))
         AuthRepository.password_validation(customer, auth.password)
 
         token_time = TokenConfig().token_expiration
