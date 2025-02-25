@@ -39,3 +39,9 @@ O Repository gerencia a comunicação com o banco de dados. Ele encapsula as ope
 O Model representa a estrutura dos dados da aplicação. Ele define os esquemas das entidades, suas propriedades e relacionamentos, garantindo que os dados sejam armazenados e manipulados corretamente.
 
 
+## Testes
+
+## Execução
+```sh
+$ pytest -v
+```
